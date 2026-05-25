@@ -1,0 +1,27 @@
+# Dependencies & build
+node_modules
+.next
+out
+*.tsbuildinfo
+
+# Environment & secrets (never commit)
+.env
+.env*.local
+data/cms/.admin-hash
+data/cms/login-attempts.json
+
+# User uploads from admin
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Deploy artifacts
+*.zip
+Desktop/web/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Local dev tools (not part of the website)
+tools/

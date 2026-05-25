@@ -1,0 +1,36 @@
+{
+  "name": "sunblinds-web",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:ftp": "node scripts/build-ftp-deploy.mjs",
+    "start": "next start",
+    "lint": "next lint",
+    "admin:init": "node scripts/init-admin.mjs",
+    "extract-catalog": "node scripts/extract-catalog.mjs",
+    "enrich-products": "node scripts/enrich-products.mjs",
+    "sync-catalog": "node scripts/sync-catalog-to-cms.mjs",
+    "restore-cms": "npx tsx scripts/restore-cms.mjs",
+    "audit-images": "node scripts/audit-fix-images.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.9.6",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

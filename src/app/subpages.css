@@ -1,0 +1,587 @@
+/* ================================================================
+   SUBPAGES — dark theme aligned with homepage (.home-dark)
+   Scoped to .site-subpages inside main (not homepage, not admin)
+   ================================================================ */
+
+body.site-subpages-active {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* —— Page sections —— */
+.site-subpages .page-section {
+  background: var(--hd-bg);
+  border-block: 1px solid var(--hd-line);
+}
+
+.site-subpages .page-section--muted {
+  background: var(--hd-bg-soft);
+}
+
+.site-subpages .page-section--inset {
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .page-section--dark {
+  background: var(--hd-bg);
+  color: var(--hd-text);
+}
+
+.site-subpages .page-section.hd-steps,
+.site-subpages .page-section.hd-refs,
+.site-subpages .page-section.hd-reviews {
+  border-block: none;
+}
+
+/* —— Typography & utilities —— */
+.site-subpages .text-ink {
+  color: var(--hd-text);
+}
+
+.site-subpages .text-muted {
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .text-brand {
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .text-line {
+  color: var(--hd-line);
+}
+
+.site-subpages .bg-surface {
+  background: var(--hd-bg-soft);
+}
+
+.site-subpages .bg-canvas {
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .bg-line {
+  background: var(--hd-line);
+}
+
+.site-subpages .border-line {
+  border-color: var(--hd-line);
+}
+
+.site-subpages .label-caps {
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .section-title,
+.site-subpages .page-title {
+  color: var(--hd-text);
+}
+
+.site-subpages .section-lead,
+.site-subpages .page-section-lead {
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .link-arrow {
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .link-arrow:hover {
+  color: var(--hd-text);
+}
+
+/* —— Buttons —— */
+.site-subpages .btn-base.border-line {
+  border-color: var(--hd-line);
+  background: var(--hd-bg-soft);
+  color: var(--hd-text);
+}
+
+.site-subpages .btn-base.border-line:hover {
+  border-color: color-mix(in srgb, var(--hd-brand) 45%, transparent);
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .btn-base.text-ink:hover {
+  background: color-mix(in srgb, white 6%, transparent);
+}
+
+/* —— Surfaces & cards —— */
+.site-subpages .surface-card {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line) !important;
+  border-radius: var(--hd-radius);
+  box-shadow: none;
+}
+
+.site-subpages .surface-card:hover {
+  background: color-mix(in srgb, var(--hd-brand) 5%, var(--hd-bg-soft));
+  border-color: color-mix(in srgb, var(--hd-brand) 25%, var(--hd-line)) !important;
+  box-shadow: 0 20px 48px color-mix(in srgb, black 35%, transparent);
+}
+
+.site-subpages .panel-tile-icon {
+  border-color: color-mix(in srgb, var(--hd-brand) 30%, var(--hd-line));
+  background: color-mix(in srgb, var(--hd-brand) 10%, var(--hd-bg-raised));
+  color: var(--hd-brand-soft);
+}
+
+/* —— Page toolbar —— */
+.site-subpages .page-toolbar {
+  border-bottom: 1px solid var(--hd-line);
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .page-toolbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 3.75rem;
+  padding-block: 0.75rem;
+}
+
+.site-subpages .page-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* —— Content grids —— */
+.site-subpages .page-content-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (min-width: 1024px) {
+  .site-subpages .page-content-grid--2,
+  .site-subpages .page-content-grid--contact {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+}
+
+/* —— About page —— */
+.site-subpages .about-intro {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (min-width: 1024px) {
+  .site-subpages .about-intro {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+}
+
+.site-subpages .about-intro-title {
+  margin-top: 0.875rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--hd-text);
+}
+
+.site-subpages .about-intro-lead {
+  margin-top: 1.25rem;
+  font-size: var(--hd-lead);
+  line-height: 1.65;
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .about-intro-body {
+  margin-top: 1rem;
+  font-size: var(--hd-body);
+  line-height: 1.65;
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .about-intro-aside {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line);
+  border-radius: var(--hd-radius);
+}
+
+.site-subpages .about-intro-aside-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 600;
+  color: var(--hd-text);
+}
+
+.site-subpages .about-intro-aside-body {
+  margin-top: 0.875rem;
+  font-size: var(--hd-body);
+  line-height: 1.65;
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .about-stats {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .site-subpages .about-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-subpages .about-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.site-subpages .about-stat {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  background: var(--hd-bg-raised);
+  border: 1px solid var(--hd-line);
+  border-radius: var(--hd-radius);
+}
+
+.site-subpages .about-stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .about-stat-label {
+  margin-top: 0.625rem;
+  font-size: var(--hd-small);
+  line-height: 1.5;
+  color: var(--hd-text-muted);
+}
+
+/* —— Catalog (řešení) —— */
+.site-subpages .catalog-grid {
+  gap: clamp(1rem, 2vw, 1.25rem);
+}
+
+.site-subpages .catalog-grid--cols-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .site-subpages .catalog-grid--cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-subpages .catalog-grid--cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.site-subpages .catalog-grid--uniform {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+.site-subpages .catalog-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line) !important;
+  border-radius: var(--hd-radius);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.45s var(--hd-ease),
+    border-color 0.45s var(--hd-ease),
+    box-shadow 0.45s var(--hd-ease);
+}
+
+.site-subpages .catalog-cell:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--hd-brand) 35%, var(--hd-line)) !important;
+  box-shadow: 0 24px 48px color-mix(in srgb, black 40%, transparent);
+}
+
+.site-subpages .catalog-cell-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .catalog-cell-media--wide {
+  aspect-ratio: 16 / 10;
+}
+
+.site-subpages .catalog-cell-media--square {
+  aspect-ratio: 1;
+}
+
+.site-subpages .catalog-cell-media img {
+  transition: transform 0.7s var(--hd-ease);
+}
+
+.site-subpages .catalog-cell:hover .catalog-cell-media img {
+  transform: scale(1.04);
+}
+
+.site-subpages .catalog-cell-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.site-subpages .catalog-cell-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--hd-text);
+  transition: color 0.35s var(--hd-ease);
+}
+
+.site-subpages .catalog-cell:hover .catalog-cell-title,
+.site-subpages .catalog-cell.group:hover h2,
+.site-subpages .catalog-cell.group:hover h3 {
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .catalog-cell-summary {
+  margin-top: 0.5rem;
+  flex: 1;
+  font-size: var(--hd-small);
+  line-height: 1.6;
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .catalog-cell-link {
+  margin-top: 1rem;
+}
+
+.site-subpages .catalog-cell > h2,
+.site-subpages .catalog-cell > p {
+  padding-inline: clamp(1rem, 2vw, 1.25rem);
+}
+
+.site-subpages .catalog-cell > h2 {
+  padding-top: clamp(1rem, 2vw, 1.25rem);
+}
+
+.site-subpages .catalog-cell > p:last-child {
+  padding-bottom: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* —— Solution catalog sections —— */
+.site-subpages .solution-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.site-subpages .solution-catalog-section-head {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 42rem;
+}
+
+.site-subpages .solution-catalog-section-title {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--hd-text);
+}
+
+.site-subpages .solution-catalog-section-lead {
+  margin-top: 0.875rem;
+  font-size: var(--hd-body);
+  line-height: 1.65;
+  color: var(--hd-text-muted);
+}
+
+/* —— Forms —— */
+.site-subpages .field-input,
+.site-subpages .field-textarea,
+.site-subpages select.field-input {
+  background: var(--hd-bg-raised);
+  border: 1px solid var(--hd-line) !important;
+  color: var(--hd-text);
+  border-radius: var(--hd-radius-sm, var(--radius-sm));
+}
+
+.site-subpages .field-input::placeholder,
+.site-subpages .field-textarea::placeholder {
+  color: var(--hd-text-dim);
+}
+
+.site-subpages .field-input:focus,
+.site-subpages .field-textarea:focus {
+  border-color: color-mix(in srgb, var(--hd-brand) 50%, var(--hd-line)) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hd-brand) 15%, transparent);
+}
+
+.site-subpages .field-label {
+  color: var(--hd-text-muted);
+}
+
+/* —— Product detail —— */
+.site-subpages .product-detail-page {
+  background: var(--hd-bg);
+}
+
+.site-subpages .product-hero-visual {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line);
+}
+
+.site-subpages .product-hero-band {
+  background: var(--hd-bg-raised);
+  border-block: 1px solid var(--hd-line);
+}
+
+.site-subpages .product-hero-title {
+  color: var(--hd-text);
+}
+
+.site-subpages .product-hero-lead {
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .product-section-nav {
+  background: color-mix(in srgb, var(--hd-bg) 92%, transparent);
+  border-bottom: 1px solid var(--hd-line);
+  backdrop-filter: blur(12px);
+}
+
+.site-subpages .product-section-nav-link {
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .product-section-nav-link:hover,
+.site-subpages .product-section-nav-link.is-active {
+  background: color-mix(in srgb, var(--hd-brand) 12%, transparent);
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .product-tech-visual {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line);
+}
+
+.site-subpages .product-tech-accordion {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line) !important;
+}
+
+.site-subpages .product-tech-row {
+  border-bottom: 1px solid var(--hd-line);
+  background: transparent;
+}
+
+.site-subpages .product-tech-row-head {
+  color: var(--hd-text);
+}
+
+.site-subpages .product-tech-row[open] .product-tech-row-head {
+  background: var(--hd-bg-raised);
+}
+
+.site-subpages .product-tech-row-title {
+  color: var(--hd-text);
+}
+
+.site-subpages .product-tech-row[open] .product-tech-row-title {
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .product-tech-row-body {
+  border-top-color: var(--hd-line);
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .product-content-section {
+  border-top-color: var(--hd-line);
+}
+
+.site-subpages .product-content-specs {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line);
+}
+
+.site-subpages .product-spec-row {
+  border-bottom-color: var(--hd-line);
+  color: var(--hd-text-muted);
+}
+
+.site-subpages .product-design-card,
+.site-subpages .product-related-card,
+.site-subpages .product-download-card {
+  background: var(--hd-bg-soft);
+  border: 1px solid var(--hd-line);
+}
+
+.site-subpages .product-design-card:hover,
+.site-subpages .product-related-card:hover,
+.site-subpages .product-download-card:hover {
+  border-color: color-mix(in srgb, var(--hd-brand) 35%, var(--hd-line));
+  box-shadow: 0 16px 40px color-mix(in srgb, black 35%, transparent);
+}
+
+.site-subpages .product-download-icon,
+.site-subpages .product-download-empty-icon {
+  background: color-mix(in srgb, var(--hd-brand) 10%, var(--hd-bg-raised));
+  border-color: color-mix(in srgb, var(--hd-brand) 30%, var(--hd-line));
+  color: var(--hd-brand-soft);
+}
+
+.site-subpages .product-download-empty {
+  background: var(--hd-bg-soft);
+  border-color: var(--hd-line);
+  color: var(--hd-text-muted);
+}
+
+/* —— Servis pricing table —— */
+.site-subpages table {
+  color: var(--hd-text);
+}
+
+.site-subpages thead {
+  border-bottom-color: var(--hd-line);
+}
+
+.site-subpages tbody tr {
+  border-bottom-color: var(--hd-line);
+}
+
+.site-subpages th,
+.site-subpages td {
+  color: inherit;
+}
+
+/* —— Pillars on about page —— */
+.site-subpages .border-brand {
+  border-color: var(--hd-brand);
+}
+
+/* —— Section head split layout —— */
+.site-subpages .page-section-head--split {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 1024px) {
+  .site-subpages .page-section-head--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 2rem;
+  }
+}
+
+/* —— Hide footer CTA band duplicate feel — already dark, keep as is —— */

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <defs>
+    <linearGradient id="mescon-footer-left" x1="8" y1="8" x2="28" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B9BD5"/>
+      <stop offset="1" stop-color="#2E75B6"/>
+    </linearGradient>
+    <linearGradient id="mescon-footer-right" x1="22" y1="8" x2="42" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4472C4"/>
+      <stop offset="1" stop-color="#1F3864"/>
+    </linearGradient>
+    <linearGradient id="mescon-footer-center" x1="18" y1="12" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FAADC"/>
+      <stop offset="1" stop-color="#5B9BD5"/>
+    </linearGradient>
+  </defs>
+  <path d="M6 38V10l11 15L28 10v28H23V22.5L17 31.5 11 22.5V38H6z" fill="url(#mescon-footer-left)"/>
+  <path d="M14 38V18l6 9 6-9v20h-5V24l-6 9-6-9v14h-1z" fill="url(#mescon-footer-center)"/>
+  <path d="M30 38V10l11 15 11-15v28h-5V22.5L46 31.5 40 22.5V38h-5z" fill="url(#mescon-footer-right)"/>
+  <text x="58" y="33" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" letter-spacing="0.04em">MESCON</text>
+</svg>

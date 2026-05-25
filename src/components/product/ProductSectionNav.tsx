@@ -1,0 +1,65 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Container } from "@/components/ui/Container";
+
+const SECTIONS = [
+  { id: "technika", label: "Technika" },
+  { id: "design", label: "Design" },
+  { id: "popis", label: "Popis" },
+  { id: "ke-stazeni", label: "Ke stažení" },
+  { id: "inspirace", label: "Inspirace" },
+  { id: "souvisejici", label: "Související" },
+] as const;
+
+type Section = (typeof SECTIONS)[number];
+
+export function ProductSectionNav() {
+  const [visible, setVisible] = useState<Section[]>([]);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const available = SECTIONS.filter((s) => document.getElementById(s.id));
+    setVisible(available);
+    setActive(available[0]?.id ?? "");
+  }, []);
+
+  useEffect(() => {
+    if (!visible.length) return;
+
+    const elements = visible.map((s) => document.getElementById(s.id)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const hit = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (hit[0]?.target.id) setActive(hit[0].target.id);
+      },
+      { rootMargin: "-28% 0px -55% 0px", threshold: [0, 0.15, 0.35] }
+    );
+
+    elements.forEach((el) => observer.observe(el!));
+    return () => observer.disconnect();
+  }, [visible]);
+
+  if (!visible.length) return null;
+
+  return (
+    <nav className="pd-nav" aria-label="Sekce produktu">
+      <Container width="wide">
+        <div className="pd-nav__inner">
+          {visible.map((s) => (
+            <Link
+              key={s.id}
+              href={`#${s.id}`}
+              className={`pd-nav__link ${active === s.id ? "is-active" : ""}`}
+            >
+              {s.label}
+            </Link>
+          ))}
+        </div>
+      </Container>
+    </nav>
+  );
+}
