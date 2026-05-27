@@ -16,43 +16,24 @@ export function ProductContentBlock({ product }: Props) {
       <div className="hd-shell">
         <SectionHead eyebrow="Popis" title="Využití a vlastnosti" align="left" />
 
-        <div className="pd-content">
-          <div>
-            <p className="pd-content__prose">{description}</p>
+        <div className="pd-content pd-content--single">
+          <p className="pd-content__prose">{description}</p>
 
-            {showFeatures ? (
-              <div className="pd-content__features">
-                <p className="hd-eyebrow">
-                  <span className="hd-eyebrow__mark" aria-hidden />
-                  Přednosti
-                </p>
-                <ul>
-                  {features.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            <TextBlocks blocks={textBlocks} variant="inline" />
-          </div>
-
-          {product.specs.length ? (
-            <aside className="pd-specs" aria-label="Technické parametry">
+          {showFeatures ? (
+            <div className="pd-content__features">
               <p className="hd-eyebrow">
                 <span className="hd-eyebrow__mark" aria-hidden />
-                Parametry
+                Přednosti
               </p>
-              <dl className="mt-4">
-                {product.specs.map((s) => (
-                  <div key={s.label} className="pd-specs__row">
-                    <dt>{s.label}</dt>
-                    <dd>{s.value}</dd>
-                  </div>
+              <ul>
+                {features.map((f) => (
+                  <li key={f}>{f}</li>
                 ))}
-              </dl>
-            </aside>
+              </ul>
+            </div>
           ) : null}
+
+          <TextBlocks blocks={textBlocks} variant="inline" />
         </div>
       </div>
     </section>

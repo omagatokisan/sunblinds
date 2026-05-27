@@ -7,6 +7,7 @@ import { ProductDetailHero } from "@/components/product/ProductDetailHero";
 import { ProductDownloads } from "@/components/product/ProductDownloads";
 import { ProductRelatedTopics } from "@/components/product/ProductRelatedTopics";
 import { ProductSectionNav } from "@/components/product/ProductSectionNav";
+import { ProductSpecsGrid } from "@/components/product/ProductSpecsGrid";
 import { ProductTechnicalOverview } from "@/components/product/ProductTechnicalOverview";
 import { buildProductDetailView } from "@/lib/product-detail";
 import { getProduct, getSolutions } from "@/lib/content";
@@ -69,6 +70,7 @@ export default async function ProductPage({ params }: Props) {
 
       <ProductDesignCarousel options={detail.designOptions} />
       <ProductContentBlock product={product} />
+      {product.specs.length ? <ProductSpecsGrid specs={product.specs} /> : null}
       <ProductDownloads
         downloads={detail.downloads}
         productName={product.name}

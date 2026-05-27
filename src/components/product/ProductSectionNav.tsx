@@ -8,6 +8,7 @@ const SECTIONS = [
   { id: "technika", label: "Technika" },
   { id: "design", label: "Varianty" },
   { id: "popis", label: "Popis" },
+  { id: "parametry", label: "Parametry" },
   { id: "ke-stazeni", label: "Ke stažení" },
   { id: "souvisejici", label: "Další krok" },
 ] as const;

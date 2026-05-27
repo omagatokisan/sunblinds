@@ -473,51 +473,86 @@
   flex-shrink: 0;
 }
 
-.pd-specs {
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  background: var(--hd-bg-soft);
-  border: 1px solid var(--hd-line);
-  border-radius: var(--hd-radius-lg);
+.pd-content--single {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  max-width: 46rem;
 }
 
-@media (min-width: 1024px) {
-  .pd-specs {
-    position: sticky;
-    top: calc(var(--header-h) + 4rem);
-  }
-}
-
-.pd-specs__row {
+.pd-spec-grid {
   display: grid;
-  gap: 0.25rem;
-  padding-block: 0.75rem;
-  border-bottom: 1px solid var(--hd-line);
-  font-size: 0.875rem;
+  gap: clamp(0.625rem, 1.2vw, 0.875rem);
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.pd-specs__row:last-child {
-  border-bottom: none;
-}
-
-@media (min-width: 400px) {
-  .pd-specs__row {
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: baseline;
-  }
-
-  .pd-specs__row dd {
-    text-align: right;
+@media (min-width: 640px) {
+  .pd-spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.pd-specs__row dt {
-  color: var(--hd-text-dim);
+@media (min-width: 1100px) {
+  .pd-spec-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
-.pd-specs__row dd {
-  font-weight: 600;
+.pd-spec-item {
+  margin: 0;
+  padding: clamp(1rem, 2vw, 1.125rem);
+  background: color-mix(in srgb, var(--hd-brand) 4%, var(--hd-bg-raised));
+  border-radius: var(--hd-radius);
+  transition: background 0.3s var(--hd-ease);
+}
+
+.pd-spec-item:hover {
+  background: color-mix(in srgb, var(--hd-brand) 7%, var(--hd-bg-raised));
+}
+
+.pd-spec-item__label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hd-brand-soft);
+  line-height: 1.35;
+}
+
+.pd-spec-item__value {
+  margin: 0.5rem 0 0;
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  line-height: 1.6;
   color: var(--hd-text);
+  text-wrap: pretty;
+}
+
+.pd-spec-item__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.375rem;
+}
+
+.pd-spec-item__list li {
+  position: relative;
+  padding-left: 0.875rem;
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--hd-text-muted);
+}
+
+.pd-spec-item__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 999px;
+  background: var(--hd-brand-soft);
 }
 
 /* —— Downloads —— */

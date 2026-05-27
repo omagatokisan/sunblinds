@@ -10,18 +10,6 @@ import type {
 import { filterCatalogProducts, isValidProductImage, resolveProductImage } from "@/lib/product-images";
 import { RELATED_TOPIC_IMAGES } from "@/data/site-visuals";
 
-/** VEKAMOTION-style anchor positions on technical diagram */
-const HOTSPOT_LAYOUT: { x: number; y: number }[] = [
-  { x: 42, y: 48 },
-  { x: 58, y: 82 },
-  { x: 75, y: 45 },
-  { x: 79, y: 81 },
-  { x: 41, y: 34 },
-  { x: 68, y: 62 },
-  { x: 52, y: 22 },
-  { x: 88, y: 58 },
-];
-
 export type ProductSibling = {
   slug: string;
   name: string;
@@ -49,15 +37,7 @@ function shortProductName(name: string) {
 }
 
 function buildHotspots(product: Product): ProductHotspot[] {
-  if (product.hotspots?.length) return product.hotspots;
-
-  return product.specs.slice(0, HOTSPOT_LAYOUT.length).map((spec, i) => ({
-    id: `hs-${i}`,
-    x: HOTSPOT_LAYOUT[i].x,
-    y: HOTSPOT_LAYOUT[i].y,
-    title: spec.label,
-    text: `${spec.label}: ${spec.value}.`,
-  }));
+  return product.hotspots ?? [];
 }
 
 function buildDesignOptions(
