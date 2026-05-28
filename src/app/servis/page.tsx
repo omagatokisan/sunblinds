@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PageSection } from "@/components/layout/PageSection";
@@ -11,10 +11,11 @@ import { ServisPricingTable } from "@/components/servis/ServisPricingTable";
 import { loadSiteContent } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Servis",
   description: "Záruční i pozáruční servis stínění, oken, pergol a garážových vrat.",
-};
+  path: "/servis",
+});
 
 export default async function ServicePage() {
   const { technicians, servisPage } = await loadSiteContent();

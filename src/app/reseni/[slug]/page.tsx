@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -7,6 +6,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { SolutionCatalogPanel } from "@/components/reseni/SolutionCatalogPanel";
 import { TextBlocks } from "@/components/ui/TextBlocks";
 import { getSolution, getSolutions } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -15,11 +15,16 @@ export async function generateStaticParams() {
   return solutions.map((s) => ({ slug: s.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const solution = await getSolution(slug);
   if (!solution) return {};
-  return { title: solution.title, description: solution.summary };
+  return buildPageMetadata({
+    title: solution.title,
+    description: solution.summary,
+    path: `/reseni/${slug}`,
+    image: solution.heroImage,
+  });
 }
 
 export default async function SolutionDetailPage({ params }: Props) {

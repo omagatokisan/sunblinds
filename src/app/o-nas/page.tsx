@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { PageToolbar } from "@/components/layout/PageToolbar";
 import { CtaBand } from "@/components/sections/CtaBand";
 import {
@@ -11,11 +11,12 @@ import {
 import { Button } from "@/components/ui/Button";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "O nás",
   description:
     "SunBlinds — stínění, okna a servis na jednom místě. Showroom v Praze-Libuši, zaměření, montáž a následná péče.",
-};
+  path: "/o-nas",
+});
 
 export default async function AboutPage() {
   const { aboutPage, solutions } = await loadSiteContent();

@@ -11,9 +11,11 @@ import { CallProvider } from "@/components/call/CallProvider";
 import { GlobalPageBanner } from "@/components/layout/GlobalPageBanner";
 import { SubpageDarkShell } from "@/components/layout/SubpageDarkShell";
 
+import { JsonLd } from "@/components/seo/JsonLd";
 import { company } from "@/data/company";
 
 import { loadSiteContent } from "@/lib/content";
+import { buildOrganizationJsonLd } from "@/lib/seo";
 import { getSiteUrl } from "@/lib/site-url";
 
 import "./globals.css";
@@ -49,6 +51,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "cs_CZ",
     siteName: company.name,
+    url: getSiteUrl(),
+  },
+
+  twitter: {
+    card: "summary_large_image",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 
   icons: {
@@ -78,6 +90,7 @@ export default async function RootLayout({
     <html lang="cs" className={montserrat.variable}>
 
       <body className="flex min-h-screen flex-col font-sans">
+        <JsonLd data={buildOrganizationJsonLd()} />
 
         <CallProvider departments={content.departments}>
 

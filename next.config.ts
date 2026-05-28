@@ -2,6 +2,34 @@ import type { NextConfig } from "next";
 
 const staticExport = process.env.STATIC_EXPORT === "1";
 
+const securityHeaders = [
+  { key: "X-DNS-Prefetch-Control", value: "on" },
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  },
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data: https:",
+      "connect-src 'self' https:",
+      "frame-src 'self' https://www.google.com https://maps.google.com https://www.google.cz",
+      "frame-ancestors 'self'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+    ].join("; "),
+  },
+];
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   output: staticExport ? "export" : "standalone",
@@ -20,6 +48,15 @@ const nextConfig: NextConfig = {
         hostname: "sunblinds.cz",
       },
     ],
+  },
+  async headers() {
+    if (staticExport) return [];
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
+    ];
   },
 };
 

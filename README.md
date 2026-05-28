@@ -40,6 +40,13 @@ Soubor `docker-compose.yaml` je v kořeni repozitáře — Coolify ho hledá na 
 1. Otevřete web na přiřazené doméně.
 2. Admin: `/admin/login`
 3. Pokud admin nejde, zkontrolujte logy — `ADMIN_PASSWORD` musí být nastavené před prvním startem kontejneru.
+4. Ověřte `/sitemap.xml`, `/robots.txt` a `/manifest.webmanifest` — generují se automaticky z Next.js.
+
+### SEO a audit (Docker / Node)
+
+- Nastavte `NEXT_PUBLIC_SITE_URL` na produkční HTTPS doménu (canonical URL, Open Graph, sitemap).
+- Admin (`/admin`) a API (`/api/admin/*`) jsou v `robots.txt` zakázané a mají `noindex`.
+- Bezpečnostní hlavičky (CSP, HSTS, X-Frame-Options) se aplikují v Node režimu; u FTP exportu je doplňuje `.htaccess` ve skriptu.
 
 Lokální test Dockeru:
 

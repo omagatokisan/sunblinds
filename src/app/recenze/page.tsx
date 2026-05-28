@@ -1,14 +1,15 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageSection } from "@/components/layout/PageSection";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { ReviewCard, ReviewForm } from "@/components/forms/ReviewForm";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Recenze",
   description: "Hodnocení zákazníků SunBlinds.",
-};
+  path: "/recenze",
+});
 
 export default async function ReviewsPage() {
   const { reviews, reviewsEnabled, gdprConsent } = await loadSiteContent();

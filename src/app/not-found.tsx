@@ -1,6 +1,14 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  title: "Stránka nenalezena",
+  description: "Požadovaná stránka neexistuje.",
+  path: "/404",
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageSection } from "@/components/layout/PageSection";
 import { PageToolbar } from "@/components/layout/PageToolbar";
@@ -8,9 +7,13 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { company } from "@/data/company";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
   title: "Kontakt",
-};
+  description: "Kontaktujte SunBlinds — telefon, e-mail, showroom Praha-Libuš a online formulář.",
+  path: "/kontakt",
+});
 
 export default async function ContactPage() {
   const { contact, gdprConsent } = await loadSiteContent();

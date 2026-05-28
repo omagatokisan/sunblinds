@@ -1,13 +1,14 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageSection } from "@/components/layout/PageSection";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Nezávazná poptávka",
   description: "Online poptávka s výběrem produktu, rozměry v mm a poznámkou.",
-};
+  path: "/poptavka",
+});
 
 export default async function InquiryPage() {
   const { solutions, inquiryOptions, gdprConsent, departments } = await loadSiteContent();

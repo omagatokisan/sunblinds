@@ -1,11 +1,13 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageSection } from "@/components/layout/PageSection";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Zásady zpracování osobních údajů",
-};
+  description: "Informace o zpracování osobních údajů společností SunBlinds dle GDPR.",
+  path: "/ochrana-osobnich-udaju",
+});
 
 export default async function PrivacyPage() {
   const { privacy } = await loadSiteContent();

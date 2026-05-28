@@ -10,6 +10,13 @@ import { HomeFaqDark } from "@/components/home/HomeFaqDark";
 import { HomeCtaDark } from "@/components/home/HomeCtaDark";
 import { loadSiteContent } from "@/lib/content";
 import { RELATED_TOPIC_IMAGES } from "@/data/site-visuals";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  path: "/",
+  description:
+    "Venkovní i interiérové stínění, okna, sítě proti hmyzu a garážová vrata. Showroom v Praze, zaměření, montáž a servis.",
+});
 
 const SERVIS_IMAGE = "/images/related/servis-team.png";
 

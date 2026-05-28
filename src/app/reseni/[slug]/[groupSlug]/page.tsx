@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -6,6 +5,7 @@ import { PageSection } from "@/components/layout/PageSection";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { UniformProductCatalog } from "@/components/reseni/UniformProductCatalog";
 import { getProductGroup, getSolutions } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string; groupSlug: string }> };
 
@@ -14,11 +14,16 @@ export async function generateStaticParams() {
   return solutions.flatMap((s) => s.productGroups.map((g) => ({ slug: s.slug, groupSlug: g.slug })));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { slug, groupSlug } = await params;
   const data = await getProductGroup(slug, groupSlug);
   if (!data) return {};
-  return { title: `${data.group.name} | ${data.solution.title}`, description: data.group.summary };
+  return buildPageMetadata({
+    title: `${data.group.name} | ${data.solution.title}`,
+    description: data.group.summary,
+    path: `/reseni/${slug}/${groupSlug}`,
+    image: data.group.image,
+  });
 }
 
 export default async function ProductGroupPage({ params }: Props) {

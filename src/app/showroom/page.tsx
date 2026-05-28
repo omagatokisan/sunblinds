@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PageSection } from "@/components/layout/PageSection";
@@ -9,9 +8,13 @@ import { ShowroomMap } from "@/components/showroom/ShowroomMap";
 import { TextBlocks } from "@/components/ui/TextBlocks";
 import { loadSiteContent } from "@/lib/content";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
   title: "Showroom",
-};
+  description: "Showroom SunBlinds v Praze-Libuši — ukázky stínění, oken a vrat. Mapa a otevírací doba.",
+  path: "/showroom",
+});
 
 export default async function ShowroomPage() {
   const { showroom } = await loadSiteContent();
