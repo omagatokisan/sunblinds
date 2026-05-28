@@ -1,9 +1,12 @@
+import Image from "next/image";
 import { CallButton } from "@/components/call/CallButton";
 import { SubpageContent } from "@/components/layout/SubpageContent";
 import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { ShowroomMap } from "@/components/showroom/ShowroomMap";
 import { TextBlocks } from "@/components/ui/TextBlocks";
+import { SHOWROOM_PHOTO } from "@/data/site-visuals";
 import { loadSiteContent } from "@/lib/content";
+import { IMG_QUALITY, imgSizes } from "@/lib/image-presets";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -28,6 +31,19 @@ export default async function ShowroomPage() {
       }}
     >
       <SubpageContent>
+        <figure className="showroom-photo">
+          <Image
+            src={SHOWROOM_PHOTO.src}
+            alt="Showroom SunBlinds v Praze-Libuši"
+            width={SHOWROOM_PHOTO.width}
+            height={SHOWROOM_PHOTO.height}
+            priority
+            quality={IMG_QUALITY}
+            className="showroom-photo__img"
+            sizes={imgSizes.showroomPhoto}
+          />
+        </figure>
+
         <div className="page-content-grid page-content-grid--2">
           <div>
             <div className="surface-card p-6">

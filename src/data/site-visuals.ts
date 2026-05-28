@@ -47,7 +47,14 @@ export const SITE_BANNER_HEIGHT = 1280;
 
 /** Obrázky pro sekci „Co dál?“ / Související témata na detailu produktu */
 export const RELATED_TOPIC_IMAGES = {
-  showroom: "https://sunblinds.cz/images/slider_2/slide2/textilni_roletky.webp",
-  poptavka: "https://sunblinds.cz/images/slider_2/slide4/okna-a-dvere-okna.webp",
-  servis: "https://sunblinds.cz/images/slider_2/slide3/hlinikove_pergoly.webp",
+  showroom: "/images/related/showroom-libus.png",
+  poptavka: "/images/related/online-poptavka.png",
+  servis: "/images/related/servis-udrzba.png",
+} as const;
+
+/** Showroom Libuš — nativní rozměry pro ostře zobrazení bez cropu */
+export const SHOWROOM_PHOTO = {
+  src: RELATED_TOPIC_IMAGES.showroom,
+  width: 1024,
+  height: 508,
 } as const;

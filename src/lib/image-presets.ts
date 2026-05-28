@@ -25,6 +25,8 @@ export const imgSizes = {
   searchThumb: "56px",
   /** Full-width banner pod headerem */
   siteBanner: "100vw",
+  /** Showroom Libuš — celá šířka obsahu (nativně 1024 px) */
+  showroomPhoto: "(max-width: 1100px) 100vw, 1024px",
 } as const;
 
 /** CSS třídy pro typické CMS obrázky */

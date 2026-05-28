@@ -779,6 +779,21 @@ body.site-subpages-active .site-page-banner--page-video .site-page-banner-video.
 }
 
 /* —— Showroom map —— */
+.site-subpages .showroom-photo {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+  background: var(--hd-bg-soft);
+  box-shadow: inset 0 0 0 1px var(--hd-line);
+}
+
+.site-subpages .showroom-photo__img {
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  margin-inline: auto;
+}
+
 .site-subpages .showroom-map {
   display: flex;
   flex-direction: column;

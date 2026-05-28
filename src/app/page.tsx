@@ -18,7 +18,7 @@ export const metadata = buildPageMetadata({
     "Venkovní i interiérové stínění, okna, sítě proti hmyzu a garážová vrata. Showroom v Praze, zaměření, montáž a servis.",
 });
 
-const SERVIS_IMAGE = "/images/related/servis-team.png";
+const SERVIS_IMAGE = RELATED_TOPIC_IMAGES.servis;
 
 export default async function HomePage() {
   const {
@@ -68,7 +68,7 @@ export default async function HomePage() {
         href="/servis"
         linkLabel="Servisní služby"
         image={SERVIS_IMAGE}
-        imageAlt="Servisní tým SunBlinds"
+        imageAlt="Servis a údržba stínící techniky SunBlinds"
         accent
       />
 

@@ -96,7 +96,7 @@ export function resolvePageBanner(pathname: string, ctx: PageBannerContext): Pag
         title: group.name,
         lead: group.summary,
         eyebrow: solution.title,
-        image: group.image,
+        image: solution.heroImage,
         videos: PAGE_BANNER_VIDEOS.reseni,
         variant: "default",
         size: "page",
