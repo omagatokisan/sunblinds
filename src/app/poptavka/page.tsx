@@ -1,6 +1,5 @@
 import { buildPageMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
-import { PageSection } from "@/components/layout/PageSection";
+import { SubpageContent } from "@/components/layout/SubpageContent";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { loadSiteContent } from "@/lib/content";
 
@@ -15,20 +14,18 @@ export default async function InquiryPage() {
   const obchod = departments.find((d) => d.id === "obchod");
 
   return (
-    <PageSection>
-      <Container width="wide">
-        {obchod ? (
-          <p className="mb-8 text-sm text-muted">
-            Dotazy k poptávce:{" "}
-            <a href={`tel:${obchod.phone.replace(/\s/g, "")}`} className="text-brand hover:underline">
-              {obchod.phone}
-            </a>
-            {" · "}
-            {obchod.hours}
-          </p>
-        ) : null}
-        <InquiryForm solutions={solutions} inquiryOptions={inquiryOptions} gdprConsent={gdprConsent} />
-      </Container>
-    </PageSection>
+    <SubpageContent narrow>
+      {obchod ? (
+        <p className="mb-8 text-sm text-muted">
+          Dotazy k poptávce:{" "}
+          <a href={`tel:${obchod.phone.replace(/\s/g, "")}`} className="text-brand hover:underline">
+            {obchod.phone}
+          </a>
+          {" · "}
+          {obchod.hours}
+        </p>
+      ) : null}
+      <InquiryForm solutions={solutions} inquiryOptions={inquiryOptions} gdprConsent={gdprConsent} />
+    </SubpageContent>
   );
 }

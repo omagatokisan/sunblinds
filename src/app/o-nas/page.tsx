@@ -1,6 +1,6 @@
 import { buildPageMetadata } from "@/lib/seo";
+import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { PageToolbar } from "@/components/layout/PageToolbar";
-import { CtaBand } from "@/components/sections/CtaBand";
 import {
   AboutIntro,
   AboutStats,
@@ -22,30 +22,27 @@ export default async function AboutPage() {
   const { aboutPage, solutions } = await loadSiteContent();
 
   return (
-    <div className="about-page">
-      <PageToolbar>
+    <SubpageLayout
+      toolbar={
         <div className="page-toolbar-actions">
           <Button href="/showroom">Navštívit showroom</Button>
           <Button href="/poptavka" variant="secondary">
             Online poptávka
           </Button>
         </div>
-      </PageToolbar>
-
-      <AboutIntro about={aboutPage} />
-      <AboutStats stats={aboutPage.stats} />
-      <AboutScope
-        title={aboutPage.scopeTitle}
-        lead={aboutPage.scopeLead}
-        solutions={solutions}
-      />
-      <AboutApproach about={aboutPage} />
-      <AboutVisit about={aboutPage} />
-
-      <CtaBand
-        title="Pojďme probrat váš projekt"
-        description="Zavolejte, napište nebo vyplňte poptávku — v pracovní dny se ozveme do 24 hodin."
-      />
-    </div>
+      }
+      cta={{
+        title: "Pojďme probrat váš projekt",
+        description: "Zavolejte, napište nebo vyplňte poptávku — v pracovní dny se ozveme do 24 hodin.",
+      }}
+    >
+      <div className="about-page">
+        <AboutIntro about={aboutPage} />
+        <AboutStats stats={aboutPage.stats} />
+        <AboutScope title={aboutPage.scopeTitle} lead={aboutPage.scopeLead} solutions={solutions} />
+        <AboutApproach about={aboutPage} />
+        <AboutVisit about={aboutPage} />
+      </div>
+    </SubpageLayout>
   );
 }

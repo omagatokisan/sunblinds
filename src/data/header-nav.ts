@@ -15,40 +15,38 @@ export type HeaderNavItem = {
   items?: HeaderTextLink[];
 };
 
+export const HEADER_RESENI: HeaderNavItem = {
+  id: "reseni",
+  href: "/reseni",
+  label: "Řešení",
+  match: (p) => p.startsWith("/reseni"),
+  intro: "Venkovní i interiérové stínění, okna a související systémy — přehledně podle oblasti.",
+};
+
+/** Kompaktní menu s 2–3 odkazy — méně obsahu než původní mega menu. */
 export const HEADER_NAV: HeaderNavItem[] = [
-  {
-    id: "reseni",
-    href: "/reseni",
-    label: "Řešení",
-    match: (p) => p.startsWith("/reseni"),
-    intro: "Venkovní i interiérové stínění, okna a související systémy — přehledně podle oblasti.",
-  },
+  HEADER_RESENI,
   {
     id: "showroom",
     href: "/showroom",
     label: "Showroom",
     match: (p) => p.startsWith("/showroom"),
-    intro: "Vzorky látek, profilů a systémů naživo v Praze-Libuši.",
+    intro: "Vzorky látek a systémů v Praze-Libuši.",
     items: [
       {
         href: "/showroom",
         label: "Showroom Praha – Libuš",
-        description: "Adresa, provoz a mapa",
+        description: "Adresa, mapa a provoz",
       },
       {
         href: "/showroom",
-        label: "Vzorky látek",
-        description: "Interiérové stínění naživo",
-      },
-      {
-        href: "/showroom",
-        label: "Venkovní systémy",
-        description: "Žaluzie, rolety a screeny",
+        label: "Vzorky látek a profilů",
+        description: "Interiér i exteriér naživo",
       },
       {
         href: "/kontakt",
         label: "Domluvit návštěvu",
-        description: "Preferujeme předchozí termín",
+        description: "Doporučujeme předchozí termín",
       },
     ],
   },
@@ -62,22 +60,17 @@ export const HEADER_NAV: HeaderNavItem[] = [
       {
         href: "/servis",
         label: "Stínící technika",
-        description: "Rolety, žaluzie, markýzy a screeny",
+        description: "Rolety, žaluzie, markýzy",
       },
       {
         href: "/servis",
-        label: "Okna a dveře",
-        description: "Seřízení, těsnění a kování",
-      },
-      {
-        href: "/servis",
-        label: "Pergoly",
-        description: "Lamely, pohony a boční stínění",
+        label: "Okna a pergoly",
+        description: "Seřízení, těsnění, lamely",
       },
       {
         href: "/poptavka",
         label: "Nahlásit závadu",
-        description: "Rychlá poptávka servisního zásahu",
+        description: "Rychlá servisní poptávka",
       },
     ],
   },
@@ -86,7 +79,7 @@ export const HEADER_NAV: HeaderNavItem[] = [
     href: "/kontakt",
     label: "Kontakt",
     match: (p) => p.startsWith("/kontakt") || p.startsWith("/poptavka"),
-    intro: "Telefon, e-mail nebo formulář — odpovíme co nejdříve.",
+    intro: "Telefon, e-mail nebo formulář.",
     items: [
       {
         href: "/kontakt",
@@ -96,12 +89,7 @@ export const HEADER_NAV: HeaderNavItem[] = [
       {
         href: "/poptavka",
         label: "Nezávazná poptávka",
-        description: "Produkt, rozměry a poznámka",
-      },
-      {
-        href: "/showroom",
-        label: company.address.label,
-        description: `${company.address.street}, ${company.address.city}`,
+        description: "Produkt, rozměry, poznámka",
       },
       {
         href: company.phoneHref,
@@ -126,12 +114,7 @@ export const HEADER_NAV: HeaderNavItem[] = [
       {
         href: "/recenze",
         label: "Recenze zákazníků",
-        description: "Reference od reálných zakázek",
-      },
-      {
-        href: "/o-nas#spoluprace",
-        label: "Jak spolupracujeme",
-        description: "Od konzultace po montáž",
+        description: "Hodnocení z reálných zakázek",
       },
       {
         href: "/ochrana-osobnich-udaju",
@@ -141,3 +124,6 @@ export const HEADER_NAV: HeaderNavItem[] = [
     ],
   },
 ];
+
+/** @deprecated Use HEADER_NAV */
+export const HEADER_SIMPLE_NAV = HEADER_NAV.filter((item) => item.id !== "reseni");

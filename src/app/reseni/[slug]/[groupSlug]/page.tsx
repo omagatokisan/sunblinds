@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PageSection } from "@/components/layout/PageSection";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { SubpageCatalogShell } from "@/components/layout/SubpageCatalogShell";
+import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { UniformProductCatalog } from "@/components/reseni/UniformProductCatalog";
 import { getProductGroup, getSolutions } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
@@ -34,30 +32,17 @@ export default async function ProductGroupPage({ params }: Props) {
   const { solution, group } = data;
 
   return (
-    <>
-      <PageSection className="page-section--flush">
-        <div className="hd-subpage-catalog">
-          <div className="hd-subpage-catalog__mesh" aria-hidden />
-          <Container width="wide" className="hd-shell reseni-page">
-            <SectionHeading
-              eyebrow={solution.title}
-              title={group.name}
-              description={group.summary}
-              align="left"
-            />
-            <div className="solution-catalog-wrap">
-              <UniformProductCatalog
-                solution={solution}
-                group={group}
-                layout="category"
-                nameFormat="category"
-              />
-            </div>
-          </Container>
+    <SubpageLayout cta={{ title: `Potřebujete poradit s výběrem — ${group.name}?` }}>
+      <SubpageCatalogShell>
+        <div className="solution-catalog-wrap">
+          <UniformProductCatalog
+            solution={solution}
+            group={group}
+            layout="category"
+            nameFormat="category"
+          />
         </div>
-      </PageSection>
-
-      <CtaBand title={`Potřebujete poradit s výběrem — ${group.name}?`} />
-    </>
+      </SubpageCatalogShell>
+    </SubpageLayout>
   );
 }

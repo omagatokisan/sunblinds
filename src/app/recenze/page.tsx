@@ -1,7 +1,6 @@
 import { buildPageMetadata } from "@/lib/seo";
-import { Container } from "@/components/ui/Container";
-import { PageSection } from "@/components/layout/PageSection";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { SubpageContent } from "@/components/layout/SubpageContent";
+import { SubpageLayout } from "@/components/layout/SubpageLayout";
 import { ReviewCard, ReviewForm } from "@/components/forms/ReviewForm";
 import { loadSiteContent } from "@/lib/content";
 
@@ -20,55 +19,45 @@ export default async function ReviewsPage() {
       : null;
 
   return (
-    <>
+    <SubpageLayout cta>
       {reviewsEnabled && avg ? (
-        <PageSection tone="muted" className="page-section--compact">
-          <Container width="wide" className="flex justify-center">
+        <SubpageContent tone="muted" className="page-section--compact">
+          <div className="flex justify-center">
             <div className="surface-card px-8 py-4 text-center">
               <p className="text-3xl font-semibold text-brand">{avg}</p>
               <p className="text-xs text-muted">{approved.length} hodnocení</p>
             </div>
-          </Container>
-        </PageSection>
+          </div>
+        </SubpageContent>
       ) : null}
 
       {reviewsEnabled ? (
         <>
-          <PageSection>
-            <Container width="wide">
-              {approved.length ? (
-                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                  {approved.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-center text-muted">Zatím žádné schválené recenze.</p>
-              )}
-            </Container>
-          </PageSection>
-
-          <PageSection tone="inset">
-            <Container width="wide" className="max-w-xl">
-              <h2 className="section-title">Napsat recenzi</h2>
-              <p className="mt-2 text-sm text-muted">
-                Vaše hodnocení zobrazíme po kontrole administrátorem.
-              </p>
-              <div className="mt-8 surface-card p-8">
-                <ReviewForm gdprConsent={gdprConsent} />
+          <SubpageContent>
+            {approved.length ? (
+              <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {approved.map((review) => (
+                  <ReviewCard key={review.id} review={review} />
+                ))}
               </div>
-            </Container>
-          </PageSection>
+            ) : (
+              <p className="text-center text-muted">Zatím žádné schválené recenze.</p>
+            )}
+          </SubpageContent>
+
+          <SubpageContent tone="inset" narrow containerClassName="max-w-xl">
+            <h2 className="section-title">Napsat recenzi</h2>
+            <p className="mt-2 text-sm text-muted">Vaše hodnocení zobrazíme po kontrole administrátorem.</p>
+            <div className="mt-8 surface-card p-8">
+              <ReviewForm gdprConsent={gdprConsent} />
+            </div>
+          </SubpageContent>
         </>
       ) : (
-        <PageSection>
-          <Container width="wide">
-            <p className="text-center text-muted">Recenze jsou dočasně vypnuté. Děkujeme za pochopení.</p>
-          </Container>
-        </PageSection>
+        <SubpageContent>
+          <p className="text-center text-muted">Recenze jsou dočasně vypnuté. Děkujeme za pochopení.</p>
+        </SubpageContent>
       )}
-
-      <CtaBand />
-    </>
+    </SubpageLayout>
   );
 }
