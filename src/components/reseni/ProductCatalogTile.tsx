@@ -30,12 +30,13 @@ export function ProductCatalogTile({
           solutionSlug={solution.slug}
           alt={displayName}
           sizes={imgSizes.productTile}
+          className="hd-product-card__img"
         />
       </div>
       <div className="hd-product-card__copy">
         <span className="hd-product-card__index">{String(index).padStart(2, "0")}</span>
         <h3 className="hd-product-card__title">{displayName}</h3>
-        {product.summary ? <p className="hd-product-card__summary">{product.summary}</p> : null}
+        <p className="hd-product-card__summary">{product.summary || "\u00a0"}</p>
         <span className="hd-product-card__arrow" aria-hidden>
           →
         </span>
